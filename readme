@@ -1,56 +1,47 @@
-# 🔮 Project Mirage
-### The AI-Powered "Stunt Double" for Your API
+🔮 Project Mirage
+The AI-Powered "Stunt Double" for Your API
 
-**Project Mirage** turns a single JSON example into a fully functional, dynamic mock server in seconds. It uses Generative AI (Gemini) to write Python code that mimics your API's structure, data types, and logic—so you can build your frontend before the backend is even ready.
----
+Project Mirage turns a single JSON example into a fully functional, dynamic mock server in seconds. It uses Generative AI (Gemini) to write Python code that mimics your API's structure, data types, and logic—so you can build your frontend before the backend is even ready.
 
-## 🚀 Why use this?
+🚀 Why use this?
 Waiting for backend teams to finish APIs blocks frontend development. Static JSON files are boring and don't test edge cases.
 
-**Mirage solves this:**
-1.  **Give it a sample JSON.** (e.g., a User profile)
-2.  **It writes a server.** (A real Python Flask app that generates random, valid data matching your schema)
-3.  **It tests your resilience.** (Toggle **Chaos Mode** to randomly inject HTTP 500 errors)
+Mirage solves this:
+1. Give it a sample JSON. (e.g., a User profile)
+2. It writes a server. (A real Python Flask app that generates random, valid data matching your schema)
+3. It tests your resilience. (Toggle **Chaos Mode** to randomly inject HTTP 500 errors)
 
-## ✨ Features
--   **Zero-Config Mocking**: Just paste JSON, get a running API.
--   **Smart Data Generation**: Understood dates, enums, IDs, and relationships automatically.
--   **Cyberpunk UI**: A beautiful, glassmorphism-styled dashboard to control your mock.
--   **🔥 Chaos Mode**: A toggle switch to simulate server crashes and verify your app's error handling.
+✨ Features
+- Zero-Config Mocking: Just paste JSON, get a running API.
+- Smart Data Generation: Understood dates, enums, IDs, and relationships automatically.
+- Cyberpunk UI: A beautiful, glassmorphism-styled dashboard to control your mock.
+- 🔥Chaos Mode: A toggle switch to simulate server crashes and verify your app's error handling.
 
----
+🛠️ Quick Start
+Prerequisites
+- Python 3.x
+- A Google Gemini API Key ([Get one here](https://aistudio.google.com/app/apikey))
 
-## 🛠️ Quick Start
-
-### Prerequisites
--   Python 3.x
--   A Google Gemini API Key ([Get one here](https://aistudio.google.com/app/apikey))
-
-### 1. Clone & Install
+1. Clone & Install
 ```powershell
 git clone https://github.com/yourusername/project-mirage.git
 cd project-mirage
 python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install flask google-generativeai
 ```
-
-### 2. Run the Engine
+2. Run the Engine
 ```powershell
 python mirage_gemini.py
 ```
+3. Create Your Mirage
+1.  Open `http://localhost:5000` in your browser.
+2.  Paste your Gemini API Key.
+3.  Paste a JSON sample** of the response you want.
+4.  Click INITIALIZE SHADOW NODE.
 
-### 3. Create Your Mirage
-1.  Open **`http://localhost:5000`** in your browser.
-2.  Paste your **Gemini API Key**.
-3.  Paste a **JSON sample** of the response you want.
-4.  Click **INITIALIZE SHADOW NODE**.
+🎉 Done! Your mock API is now live at `http://localhost:5000/api/mirage`.
 
-🎉 **Done!** Your mock API is now live at `http://localhost:5000/api/mirage`.
-
----
-
-## 🧠 How it Works
-
+🧠 How it Works
 ```mermaid
 graph LR
     A[User Input JSON] -->|Sent to| B(Gemini AI)
@@ -60,20 +51,16 @@ graph LR
     F[Chaos Toggle] -->|Controls| D
 ```
 
-1.  **Input**: You provide the "ideal" response.
-2.  **Synthesis**: The AI analyzes the types (is "2023-01-01" a string or a date? is "status" an enum?) and writes a Python function to generate infinite variations of it.
-3.  **Deployment**: This function is hot-loaded into the running Flask server.
-4.  **Chaos**: When enabled, the server intercepts requests and randomly throws 500 errors.
+1. Input: You provide the "ideal" response.
+2. Synthesis: The AI analyzes the types (is "2023-01-01" a string or a date? is "status" an enum?) and writes a Python function to generate infinite variations of it.
+3. Deployment: This function is hot-loaded into the running Flask server.
+4. Chaos: When enabled, the server intercepts requests and randomly throws 500 errors.
 
+📂 Project Structure
+- `mirage_gemini.py`: The main application (UI + Server + AI Logic).
+- `gemini_shadow_server.py`: (Generated) The standalone server code produced by the tool.
+
+🛡️ Security Note
+This tool executes AI-generated code locally. Always inspect the generated logic if you are working with sensitive environments. Do not expose this server publicly without adding authentication.
 ---
-
-## 📂 Project Structure
--   `mirage_gemini.py`: The main application (UI + Server + AI Logic).
--   `gemini_shadow_server.py`: (Generated) The standalone server code produced by the tool.
-
-## 🛡️ Security Note
-This tool executes AI-generated code locally. Always inspect the generated logic if you are working with sensitive environments. **Do not expose this server publicly without adding authentication.**
-
----
-
-*Built with 💜 by sandarbh bajpai and a bit of chaos.*
+Built with 💜 by sandarbh bajpai and a bit of chaos.

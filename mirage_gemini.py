@@ -421,6 +421,5 @@ def mock_api():
     except Exception as e:
         return jsonify({"error": f"Runtime Error: {str(e)}"}), 500
 
-if __name__ == '__main__':
-    print("🔮 Project Mirage v2.1 Running on http://localhost:5000")
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
